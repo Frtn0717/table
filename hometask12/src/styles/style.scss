@@ -1,3 +1,12 @@
+$font-main: 'Roboto';
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../public/fonts/Roboto-Medium.ttf');
+}
+
+
+
 *,
 *:before,
 *:after {
@@ -8,3 +17,77 @@
   -moz-box-sizing: border-box;
 }
 
+body {
+  font-family: $font-main;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.wrapper {
+  width: min(100%, 80vw);
+  height: min(100%, 80vh);
+  background-color: rgb(159, 245, 216);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  
+
+  .cast-table {
+    width: min(100%, 60vw);
+    height: min(100%, 30vh);
+    background-color: rgb(228, 192, 138);
+    border-collapse: collapse;
+
+    & * {
+      border: 2px solid black;
+      border-collapse: collapse;
+    }
+
+    .cast-table__heading {
+      width: max(100%, 60vw);
+      height: 2rem;
+      font-size: 1.2rem;
+      padding: 0.2rem;
+      background-color: rgb(206, 107, 126);
+    }
+
+    th {
+      text-transform: uppercase;
+      opacity: 0.6;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .sorted {
+      background-image: url('../public/images/sort.svg');
+      background-repeat: no-repeat;
+      background-size: 1rem;
+      background-position: left;
+      opacity: 1;
+    }
+
+    th,
+    td {
+      padding: 0.3rem;
+      font-size: 1.1rem;
+    }
+
+    td:focus {
+      background-color: rgb(216, 221, 219);
+    }
+
+    tbody tr:nth-child(2n+1) {
+      background-color: rgb(209, 199, 209);      
+    }
+
+    tbody td:first-child {
+      text-align: center;
+      
+    }
+
+
+  }
+}

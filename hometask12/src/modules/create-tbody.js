@@ -1,23 +1,18 @@
 export const createRows = (data) => {
-  const table = document.querySelector('.cast-table');
-  
+  const table = document.querySelector('.cast-table');  
   const newTbody = document.createElement('tbody');
   const tbody = table.appendChild(newTbody);
 
-  for (let i = 0; i < data[0].length; i++) {
-    const newTr = document.createElement('tr');
-    const currentTr = tbody.appendChild(newTr);
+  data.map((rowObject) => {
+    const tr = tbody.insertRow();
 
-    for (let j = 0; j <= data.length; j++) {
+    Object.keys(rowObject).map((item, index) => {
       const newTd = document.createElement('td');
-      const currentTd = currentTr.appendChild(newTd);
+      const td = tr.appendChild(newTd);
+      td.classList.add('cast-table__cell');
+      td.setAttribute('tabindex', 0);
+      td.innerHTML = Object.values(rowObject)[index];
+    })
 
-      if (j === 0) {
-        currentTd.innerHTML = i + 1;
-      } else {
-        currentTd.innerHTML = data[j-1][i];
-      }
-
-    }
-  }
+  })
 };
